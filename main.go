@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
-	"gawkbox-assignment/dal"
 	"gawkbox-assignment/middleware"
 	"gawkbox-assignment/twitch"
 	"log"
 	"net/http"
+
+	"./gawkbox-assignment/dal"
 
 	"github.com/gorilla/mux"
 )
