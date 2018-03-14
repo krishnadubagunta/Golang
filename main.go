@@ -2,14 +2,12 @@ package main
 
 import (
 	"fmt"
+	"gawkbox-assignment/dal"
 	"gawkbox-assignment/middleware"
-	"gawkbox-assignment/twitch"
+	"gawkbox-assignment/twitchapi"
+	"github.com/gorilla/mux"
 	"log"
 	"net/http"
-
-	"./gawkbox-assignment/dal"
-
-	"github.com/gorilla/mux"
 )
 
 func main() {
@@ -17,8 +15,8 @@ func main() {
 	r := mux.NewRouter()
 
 	// Configure a sample route
-	r.HandleFunc("/api/streams", twitch.GetStreamsFromTwitch).Methods("GET")
-	r.HandleFunc("/api/user/{id}", twitch.GetUserByID).Methods("GET")
+	r.HandleFunc("/api/streams", twitchapi.GetStreamsFromTwitch).Methods("GET")
+	r.HandleFunc("/api/user/{id}", twitchapi.GetUserByID).Methods("GET")
 	dal.DoSomething()
 	// Run your server
 	log.Fatal(http.ListenAndServe(":8080", middleware.APISetup(r)))
