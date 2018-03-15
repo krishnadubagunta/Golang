@@ -12,6 +12,7 @@ var (
 	clientID      string
 	clientSectret string
 	mysqlURL      string
+	redirect_uri  string
 )
 
 func init() {
@@ -22,14 +23,25 @@ func init() {
 	clientID = os.Getenv("TWITCH_CLIENT_ID")
 	clientSectret = os.Getenv("TWITCH_CLIENT_SECRET")
 	mysqlURL = os.Getenv("MYSQL_DATA_URL")
+	redirect_uri = os.Getenv("REDIRECT_URI")
 }
 
-//GetTwitchClientCreds sets passes the Environment Variables to the req handlers
-func GetTwitchClientCreds() string {
+//GetTwitchClientID sets passes the Environment Variables to the req handlers
+func GetTwitchClientID() string {
 	return clientID
 }
 
 //GetMySQLURL returns MySQL URL
 func GetMySQLURL() string {
 	return mysqlURL
+}
+
+//GetTwitchClientSecret sets
+func GetTwitchClientSecret() string {
+	return clientSectret
+}
+
+//GetRedirectURI returns the url for callback
+func GetRedirectURI() string {
+	return redirect_uri
 }
