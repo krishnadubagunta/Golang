@@ -27,7 +27,7 @@ func main() {
 	r.HandleFunc("/api/search/user", twitchapi.GetUsersByName).Methods("GET")
 	r.HandleFunc("/api/auth", auth.OAuthHandler).Methods("GET")
 	r.HandleFunc("/api/auth/callback", auth.OAuthCallBack).Methods("GET")
-
+	r.HandleFunc("/api/logout", auth.Logout).Methods("GET")
 	// Run your server
 	log.Fatal(http.ListenAndServe(":8080", middleware.APISetup(r)))
 }

@@ -72,4 +72,12 @@ func OAuthCallBack(w http.ResponseWriter, r *http.Request) {
 		Path:     "/",
 	}
 	http.SetCookie(w, &cookie)
+	http.Redirect(w, r, "/api/user", http.StatusPermanentRedirect)
+}
+
+//Logout is used to log out of the application
+func Logout(w http.ResponseWriter, r *http.Request) {
+	cookie, _ := r.Cookie("TwitchAccessToken")
+	cookie.Expires = time.Now()
+	http.SetCookie(w, cookie)
 }

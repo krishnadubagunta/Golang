@@ -46,12 +46,14 @@ func InsertOrUpdateUser(v interface{}) bool {
 		ViewCount:    V.ViewCount,
 		Email:        V.Email,
 	}
-	db.Table("Users").NewRecord(user)
-	db.Table("Users").Create(&user)
-	if !db.Table("Users").NewRecord(user) {
-		return true
+	if db.Table("Users").Where("id = ?", V.ID).Find(&user).RecordNotFound() {
+		db.Table("Users").NewRecord(user)
+		db.Table("Users").Create(&user)
+		if !db.Table("Users").NewRecord(user) {
+			return true
+		}
+		db.Close()
 	}
-	db.Close()
 	return false
 }
 
