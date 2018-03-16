@@ -5,7 +5,7 @@ import styles from './styles';
 export default class Settings extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <View>
         <Text style={styles.Heading}>Settings</Text>
       </View>
     );

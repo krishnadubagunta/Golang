@@ -1,13 +1,28 @@
 import React from 'react';
-import { TabNavigator, TabBarBottom } from 'react-navigation';
-import { Ionicons } from '@expo/vector-icons';
+import { StackNavigator,TabNavigator, TabBarBottom } from 'react-navigation';
+import VideoPage from '../components/VideoPage'
 import Streams from '../components/Streams';
 import Settings from '../components/Settings';
 import Search from '../components/Search';
+import { Ionicons } from '@expo/vector-icons';
 
-const HomeScreen = TabNavigator(
+export const StreamStack = StackNavigator(
   {
     Streams: { screen: Streams },
+    Video: {screen : VideoPage}
+  },
+  {
+    navigationOptions: {
+      headerStyle: { display: 'none' }
+    }
+  }
+);
+
+
+
+export const Tabs = TabNavigator(
+  {
+    Streams: { screen: StreamStack},
     Search: { screen: Search },
     Settings: { screen: Settings }
   },
@@ -38,4 +53,5 @@ const HomeScreen = TabNavigator(
   }
 );
 
-export default HomeScreen;
+
+

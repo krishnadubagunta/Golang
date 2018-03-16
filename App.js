@@ -1,22 +1,21 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { StackNavigator } from 'react-navigation';
-import HomeScreen from './Navigation/TabNavigation';
+import React, { Component } from 'react';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunkMiddleware from 'redux-thunk';
+import createLogger from 'redux-logger';
+import rootReducer from './reducers';
+import {Tabs} from './navigation';
 
-const AppScreens = StackNavigator(
-  {
-    Home: { screen: HomeScreen }
-  },
-  {
-    navigationOptions: {
-      headerStyle: { display: 'none' },
-      headerLeft: null
-    }
-  }
-);
+const createStoreWithMiddleware = applyMiddleware(thunkMiddleware)(createStore);
 
-export default class App extends React.Component {
+store = createStoreWithMiddleware(rootReducer, {});
+
+export default class App extends Component {
   render() {
-    return <AppScreens />;
+    return (
+      <Provider store={store}>
+        <Tabs />
+      </Provider>
+    );
   }
 }
