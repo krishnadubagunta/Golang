@@ -1,3 +1,0 @@
-# Remote Assignment V3
-
-    
