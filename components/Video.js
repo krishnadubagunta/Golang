@@ -1,11 +1,18 @@
-import SystemJS from 'systemjs';
-import {View} from 'react-native';
+import React, {Component} from 'react';
+import {View, WebView} from 'react-native';
 
-const TwitchPlayer = SystemJS.import('http://player.twitch.tv/js/embed/v1.js')
-
-const player = () => {
-    return (
-        <View ref={ e => {handlePlayer()}}>
-        </View>
-    )
-}
+export default class Twitch extends Component{
+    render(){
+        const login = this.props.navigation.state.params
+        return (
+                <View style={{ flex: 1 }}>
+                    <WebView
+                        style={{ flex: 1 }}
+                        javaScriptEnabled
+                        mediaPlaybackRequiresUserAction={false}
+                        source={{ uri: `https://player.twitch.tv/?channel=${login}` }}
+                    />
+                </View>
+        )
+    }
+} 

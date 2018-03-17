@@ -1,6 +1,7 @@
 import React from 'react';
 import { StackNavigator,TabNavigator, TabBarBottom } from 'react-navigation';
-import VideoPage from '../components/VideoPage'
+import VideoPage from '../components/VideoPage';
+import Twitch from '../components/Video';
 import Streams from '../components/Streams';
 import Settings from '../components/Settings';
 import Search from '../components/Search';
@@ -9,7 +10,8 @@ import { Ionicons } from '@expo/vector-icons';
 export const StreamStack = StackNavigator(
   {
     Streams: { screen: Streams },
-    Video: {screen : VideoPage}
+    VideoPage: {screen : VideoPage},
+    Video : {screen : Twitch}
   },
   {
     navigationOptions: {

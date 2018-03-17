@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {  Text, View, FlatList, ScrollView } from 'react-native';
+import {  Text, View, FlatList, ScrollView, Platform } from 'react-native';
 import { Card, ListItem, Button } from 'react-native-elements';
 import styles from './styles';
 import { connect } from 'react-redux';
@@ -19,13 +19,14 @@ class Streams extends Component {
     this.props.fetchStreams();
   }
 
-  renderStreams(streams) {
+  renderStreams({streams}) {
     if (streams) {
+      const {data} = streams
       return (
         <ScrollView>
           <Text style={styles.Heading}>Streams</Text>
           <FlatList
-            data={streams}
+            data={data}
             keyExtractor={(item, index) => item.id}
             renderItem={({ item }) => <StreamCard key={item.id} stream={item}/>} 
           />
@@ -34,9 +35,9 @@ class Streams extends Component {
     }
   }
 
-  componentWillReceiveProps({ID}){
+  componentWillReceiveProps({streams,ID}){
     if( ID ){
-        this.props.navigation.navigate('Video',ID.ID)
+        this.props.navigation.navigate('VideoPage',ID.ID)
     }
   }
 
@@ -46,14 +47,15 @@ class Streams extends Component {
 
   render() {
     const { streams } = this.props;
-    return <View>{this.renderStreams(streams)}</View>;
+    return <View id="View.NO_ID" style={{backgroundColor:"#fff"}}>{this.renderStreams(streams)}</View>;
   }
 }
 
 function mapStateToProps({ streams, pagination, error, ID }) {
-  return { streams: streams.streams, pagination, error, ID };
+  return { streams, pagination, error, ID };
 }
 function mapStateToDispatch(dispatch) {
+  
   return bindActionCreators({ fetchStreams }, dispatch);
 }
 

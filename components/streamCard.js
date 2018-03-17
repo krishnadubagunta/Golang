@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, ImageBackground, TouchableOpacity } from 'react-native';
 import { Card, ListItem, Button } from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import { replace } from 'lodash';
@@ -20,7 +20,8 @@ class StreamCard extends Component {
     var image = stream.thumbnail_url;
     image = replace(image, '{width}x{height}', '500x300');
     return (
-      <Card featuredTitle={stream.title} image={{ uri: image }}>
+      <Card style={{paddingBottom: 5}} featuredTitle={stream.title} image={{ uri: image }}>
+  
         <Button
             icon={{ name: 'video-label' }}
             backgroundColor="#03A9F4"

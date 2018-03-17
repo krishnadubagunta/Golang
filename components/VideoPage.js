@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import {View, Text, WebView, Image} from 'react-native'
+import {View, Text, WebView, Image, ScrollView} from 'react-native'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styles from "./styles";
 import {fetchVideoURL} from '../actions';
+import { Button } from "react-native-elements";
 // import Video from 'react-native-video'
 
 class VideoPage extends Component{
@@ -32,29 +33,39 @@ class VideoPage extends Component{
 
     renderPage(){
         if(this.state.User.login){
+            const {User} = this.state;
             return (
                 <View style={styles.container}>
-                    <Image style={styles.roundedImage} resizeMethod="auto" resizeMode="cover" source={{uri : this.state.User.offline_image_url || "http://dotawallpaper.org/wp-content/uploads/2016/05/Necrophos%20Hero%20Dota%202.jpg"}} />
+                    <Image style={styles.roundedImage} resizeMethod="auto" resizeMode="cover" source={{uri : User.offline_image_url || "http://dotawallpaper.org/wp-content/uploads/2016/05/Necrophos%20Hero%20Dota%202.jpg"}} />
                     <Text style={styles.Heading}>
-                            { (this.state.User.display_name).toUpperCase()}
+                            { (User.display_name).toUpperCase()}
                     </Text>
-                    <WebView
-                        style={styles.videoPreview}
-                        source={{uri:`http://player.twitch.tv?channel=${this.state.User.login}`}}
-                        mediaPlaybackRequiresUserAction
-                        startInLoadingState
-                        scalesPageToFit
-                    />
+                    <Button icon={{ name: 'video-label' }}
+                            backgroundColor="#03A9F4"
+                            buttonStyle={{
+                                borderRadius: 0,
+                                marginLeft: 0,
+                                marginRight: 0,
+                                marginBottom: 0,
+                            }}
+                            onPress={this.handleClick.bind(this)}
+                            title="VIEW NOW"/>
                 </View>
             )
         }
     }
 
+    handleClick(){
+        this.props.navigation.navigate('Video',this.state.User.login)
+    }
+
     render(){
         return(
+            <ScrollView>
             <View>
                 {this.renderPage()}
             </View>
+            </ScrollView>
         )
     }
 }

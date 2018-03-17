@@ -14,7 +14,7 @@ export function pagination(state = {}, { type, payload }) {
     case RECEIVE_PAGINATION:
       return { payload };
     default:
-      return state;
+      return null;
   }
 }
 
