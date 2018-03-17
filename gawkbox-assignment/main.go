@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
-	"gawkbox-assignment/auth"
-	"gawkbox-assignment/middleware"
-	"gawkbox-assignment/twitchapi"
 	"github.com/gorilla/mux"
+	"github.com/krishnadubagunta/GoLang/gawkbox-assignment/auth"
+	"github.com/krishnadubagunta/GoLang/gawkbox-assignment/middleware"
+	"github.com/krishnadubagunta/GoLang/gawkbox-assignment/twitchapi"
 	"log"
 	"net/http"
 )
