@@ -47,7 +47,7 @@ class Streams extends Component {
 
   render() {
     const { streams } = this.props;
-    return <View id="View.NO_ID" style={{backgroundColor:"#fff"}}>{this.renderStreams(streams)}</View>;
+    return <View style={{backgroundColor:"#fff"}}>{this.renderStreams(streams)}</View>;
   }
 }
 

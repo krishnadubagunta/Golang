@@ -3,11 +3,11 @@ import { StackNavigator,TabNavigator, TabBarBottom } from 'react-navigation';
 import VideoPage from '../components/VideoPage';
 import Twitch from '../components/Video';
 import Streams from '../components/Streams';
-import Settings from '../components/Settings';
+
 import Search from '../components/Search';
 import { Ionicons } from '@expo/vector-icons';
 
-export const StreamStack = StackNavigator(
+const StreamStack = StackNavigator(
   {
     Streams: { screen: Streams },
     VideoPage: {screen : VideoPage},
@@ -20,13 +20,23 @@ export const StreamStack = StackNavigator(
   }
 );
 
-
+const SearchStack = StackNavigator(
+  {
+    Search: { screen: Search },
+    VideoPage: {screen : VideoPage},
+    Video : {screen : Twitch}
+  },
+  {
+    navigationOptions: {
+      headerStyle: { display: 'none' }
+    }
+  }
+)
 
 export const Tabs = TabNavigator(
   {
     Streams: { screen: StreamStack},
-    Search: { screen: Search },
-    Settings: { screen: Settings }
+    Search: { screen: SearchStack }
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -36,8 +46,6 @@ export const Tabs = TabNavigator(
         let iconName;
         if (routeName === 'Streams') {
           iconName = `logo-twitch`;
-        } else if (routeName === 'Settings') {
-          iconName = `ios-options${focused ? '' : '-outline'}`;
         } else if (routeName === 'Search') {
           iconName = `ios-search${focused ? '' : '-outline'}`;
         }

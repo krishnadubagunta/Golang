@@ -1,8 +1,9 @@
-import { RECEIVE_STREAMS, RECEIVE_PAGINATION, ID , USER} from '../actionTypes';
+import { RECEIVE_STREAMS, RECEIVE_PAGINATION, ID , USER, SEARCH_RESULTS,AUTH} from '../actionTypes';
 import axios from 'axios';
+import {HOST} from 'react-native-dotenv'
 import {Platform} from 'react-native';
 
-const BASE_URL = 'http://10.0.0.92:8080/api';
+const BASE_URL = `${HOST}/api`;
 
 export const fetchStreams = () => async dispatch => {
   const req = await requests(`${BASE_URL}/streams`);
@@ -29,6 +30,18 @@ const parsePromise = (res) => {
   })
 }
 
+export const fetchUsers = (q) => async dispatch => {
+  var results =[]
+  if(q.length > 0){
+    const req = await requests(`${BASE_URL}/search/user?q=${q}`)
+    results = req.data
+  }
+  dispatch({
+    type: SEARCH_RESULTS,
+    payload : results
+  })
+}
+
 export const selectID = (id) => async dispatch => {
   dispatch({
     type : ID,
@@ -44,19 +57,20 @@ export const fetchVideoURL = (id) => async dispatch => {
   })
 }
 
+export const login = () => async dispatch => {
+  const req = await requests(`${BASE_URL}/auth`)
+  dispatch({
+    type: AUTH,
+    payload : req.data
+  })
+}
 
 const requests = async(url) => {
-  var res = {}
-  if(Platform.OS === "android"){
-    res = await axios.get(url,{
-      method: "GET",
-      headers : {
-        "Accept-Encoding" : ["gzip","deflate"]
-      }
-    });
-  }
-  else{
-    res = await axios.get(url)
-  }
+ const res = await axios.get(url,{
+    method:"GET",
+    headers : {
+      "Accept-Encoding" : ["gzip","deflate"]
+    }
+  });
   return res;
 }
