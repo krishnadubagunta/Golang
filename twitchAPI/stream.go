@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"gawkbox-assignment/models"
 	"github.com/gorilla/mux"
-	"log"
 	"net/http"
 )
 
@@ -14,7 +13,6 @@ var streamURL = baseURL + "streams?language=en"
 func GetStreams(w http.ResponseWriter, r *http.Request) {
 	var data models.Streams
 	w, streams := requests(w, r, &data, streamURL, "GET")
-	log.Println("Response : ", streams)
 	json.NewEncoder(w).Encode(streams)
 }
 

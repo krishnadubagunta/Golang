@@ -62,6 +62,6 @@ func InsertOrUpdateUser(v interface{}) bool {
 func FindUsersByDisplayName(q string) interface{} {
 	db, _ := gorm.Open("mysql", connectionString)
 	var users []models.UserGorm
-	db.Table("Users").Where("login LIKE ?", "%"+q+"%").Find(&users)
+	db.Raw("select * from Users where login LIKE ?", "%"+q+"%").Find(&users)
 	return users
 }

@@ -14,7 +14,7 @@ var (
 	mysqlURL      string
 	redirectURI   string
 	privateIP     string
-	localTunnel   string
+	sessionKey    string
 )
 
 func init() {
@@ -27,7 +27,7 @@ func init() {
 	mysqlURL = os.Getenv("MYSQL_DATA_URL")
 	redirectURI = os.Getenv("REDIRECT_URI")
 	privateIP = os.Getenv("PRIVATE_IP")
-	// localTunnel = os.Getenv("LOCAL_TUNNEL")
+	sessionKey = os.Getenv("SESSION_KEY")
 }
 
 //GetTwitchClientID sets passes the Environment Variables to the req handlers
@@ -55,7 +55,7 @@ func GetPrivateIP() string {
 	return privateIP
 }
 
-// //GetLocalTunnel returns the url for callback
-// func GetLocalTunnel() string {
-// 	return localTunnel
-// }
+//GetSessionKey returns the url for callback
+func GetSessionKey() string {
+	return sessionKey
+}
