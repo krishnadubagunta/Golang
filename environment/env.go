@@ -12,7 +12,9 @@ var (
 	clientID      string
 	clientSectret string
 	mysqlURL      string
-	redirect_uri  string
+	redirectURI   string
+	privateIP     string
+	localTunnel   string
 )
 
 func init() {
@@ -23,7 +25,9 @@ func init() {
 	clientID = os.Getenv("TWITCH_CLIENT_ID")
 	clientSectret = os.Getenv("TWITCH_CLIENT_SECRET")
 	mysqlURL = os.Getenv("MYSQL_DATA_URL")
-	redirect_uri = os.Getenv("REDIRECT_URI")
+	redirectURI = os.Getenv("REDIRECT_URI")
+	privateIP = os.Getenv("PRIVATE_IP")
+	// localTunnel = os.Getenv("LOCAL_TUNNEL")
 }
 
 //GetTwitchClientID sets passes the Environment Variables to the req handlers
@@ -43,5 +47,15 @@ func GetTwitchClientSecret() string {
 
 //GetRedirectURI returns the url for callback
 func GetRedirectURI() string {
-	return redirect_uri
+	return redirectURI
 }
+
+//GetPrivateIP returns the url for callback
+func GetPrivateIP() string {
+	return privateIP
+}
+
+// //GetLocalTunnel returns the url for callback
+// func GetLocalTunnel() string {
+// 	return localTunnel
+// }

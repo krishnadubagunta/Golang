@@ -8,6 +8,7 @@ type User struct {
 	Type         string `json:"type"`
 	Description  string `json:"description"`
 	ProfileImage string `json:"profile_image_url"`
+	OfflineImage string `json:"offline_image_url"`
 	ViewCount    int64  `json:"view_count"`
 	Email        string `json:"email,omitempty"`
 }
@@ -46,6 +47,7 @@ type UserGorm struct {
 	Type         string `gorm:"default:'NULL'"`
 	Description  string `gorm:"default:'NULL'"`
 	ProfileImage string
+	OfflineImage string
 	ViewCount    int64
 	Email        string `gorm:"default:'NULL'"`
 }

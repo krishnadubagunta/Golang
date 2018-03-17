@@ -43,6 +43,7 @@ func InsertOrUpdateUser(v interface{}) bool {
 		Type:         V.Type,
 		Description:  V.Description,
 		ProfileImage: V.ProfileImage,
+		OfflineImage: V.OfflineImage,
 		ViewCount:    V.ViewCount,
 		Email:        V.Email,
 	}

@@ -29,5 +29,5 @@ func main() {
 	r.HandleFunc("/api/auth/callback", auth.OAuthCallBack).Methods("GET")
 	r.HandleFunc("/api/logout", auth.Logout).Methods("GET")
 	// Run your server
-	log.Fatal(http.ListenAndServe(":8080", middleware.APISetup(r)))
+	log.Fatal(http.ListenAndServe(environment.GetPrivateIP()+":8080", middleware.APISetup(r)))
 }
