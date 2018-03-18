@@ -55,4 +55,30 @@ Server Booted...
   if this is the first time you're running this, you will `true` before `Server Booted...` as you don't have `Users` table in your twitch database, this program creates it for you.
   
 
-## React Native Frontend 
+## React Native 
+This project uses [CRNA CLI](https://facebook.github.io/react-native/blog/2017/03/13/introducing-create-react-native-app.html) to create the application, and [react-native-elements](https://react-native-training.github.io/react-native-elements/docs/overview.html) for the UI. 
+
+All you need to do here is , again, setup the environment variables, which in this case, just one. 
+
+```
+HOST : xxxxxxxxx
+```
+
+this variable is given because, if `MODE=AUTH` in the Golang API, then there is no way we can use `localhost` for android and iOS, instead we have to use something called [localtunnel](https://localtunnel.github.io/www/) to expose our api server to public. now this id that localtunnel gives, can be used in `HOST= `, and everything runs perfectly. 
+
+if `MODE=notAuth` then we can directly use our IP address as `HOST=10.0.0.82:8080` with the port number, which is 8080. 
+
+if android gives you any problem, which it gives, you have to reverse-map the port numbers of the device to the machine's port, like 
+```
+adb reverse tcp:8080 tcp:8080
+```
+
+## Screenshots of the application on React Native
+Screen 1:
+![alt text](https://farm1.staticflickr.com/793/39989128795_8b29ee506c_b.jpg "Streams")
+
+Screen2:
+![alt text](https://farm5.staticflickr.com/4784/40882549401_57928de527_b.jpg "User Page to View to Live Stream")
+
+Screen 3:
+![alt text](https://farm1.staticflickr.com/797/39989128115_fed0427913_b.jpg "Live Search from SQL Database")
