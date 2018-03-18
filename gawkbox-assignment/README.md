@@ -4,7 +4,7 @@ This project has both react-native and golang applications in separate branches.
 
 ## Golang API Server with MySQL
 
-   ## Prerequisites to this project
+   ### Prerequisites to this project
 
 This project uses `dotenv` configuration for accessing environment variables,
 you must create  `variables.env` file and this file must have these properties
@@ -28,7 +28,7 @@ go run main.go
 As the project does not have the auth routes for frontend, you need to specify the mode of the golang application and run it on either [Postman](https://www.getpostman.com/) or your browser
 
 
-   ## How to install
+   ### How to install
   
   in the terminal, get the repository this project is hosted on 
   ```
