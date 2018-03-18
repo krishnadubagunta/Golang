@@ -58,7 +58,7 @@ $GOPATH/src/github.com/krishnadubagunta/golang/gawkbox-assignment/
 false
 Server Booted...
   ```
-  if this is the first time you're running this, you will `true` before `Server Booted...` as you don't have `Users` table in your twitch database, this program creates it for you.
+  if this is the first time you're running this, you will see `true` before `Server Booted...` as you don't have `Users` table in your twitch database, this program creates it for you.
   
 
 ## React Native 
