@@ -25,7 +25,13 @@ after you set this up in the root directory, you can run
 go run main.go
 
 ```
-As the project does not have the auth routes for frontend, you need to specify the mode of the golang application and run it on either [Postman](https://www.getpostman.com/) or your browser
+As the project does not have the auth routes for frontend, you need to specify the mode of the golang application and run it on either [Postman](https://www.getpostman.com/) or your browser.
+
+By root directory, I mean the directory where main.go is present, which is 
+
+```
+$GOPATH/src/github.com/krishnadubagunta/golang/gawkbox-assignment/
+```
 
 
    ### How to install
@@ -56,12 +62,15 @@ Server Booted...
   
 
 ## React Native 
+
+This is present in the react-native branch of [this](https://github.com/krishnadubagunta/golang) repository.
+
 This project uses [CRNA CLI](https://facebook.github.io/react-native/blog/2017/03/13/introducing-create-react-native-app.html) to create the application, and [react-native-elements](https://react-native-training.github.io/react-native-elements/docs/overview.html) for the UI. 
 
 All you need to do here is , again, setup the environment variables, which in this case, just one. 
 
 ```
-HOST : xxxxxxxxx
+HOST = xxxxxxxxx
 ```
 
 this variable is given because, if `MODE=AUTH` in the Golang API, then there is no way we can use `localhost` for android and iOS, instead we have to use something called [localtunnel](https://localtunnel.github.io/www/) to expose our api server to public. now this id that localtunnel gives, can be used in `HOST= `, and everything runs perfectly. 
@@ -74,11 +83,17 @@ adb reverse tcp:8080 tcp:8080
 ```
 
 ## Screenshots of the application on React Native
-Screen 1:
+Live Streams List:
 ![alt text](https://farm1.staticflickr.com/793/39989128795_8b29ee506c_b.jpg "Streams")
 
-Screen2:
+User screen after selecting a stream from the list:
 ![alt text](https://farm5.staticflickr.com/4784/40882549401_57928de527_b.jpg "User Page to View to Live Stream")
 
-Screen 3:
+Searching users from the database:
 ![alt text](https://farm1.staticflickr.com/797/39989128115_fed0427913_b.jpg "Live Search from SQL Database")
+
+## Note : [Very Very Important] !
+
+Live search from SQL database cannot happen until you signin or signup using OAuth for this application. i.e., for this feature to return any users, you need to use `MODE=AUTH` atleast once in the Golang API.
+
+# Thank you for Reading ME.
