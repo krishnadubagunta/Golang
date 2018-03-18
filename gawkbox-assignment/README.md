@@ -4,7 +4,7 @@ This project has both react-native and golang applications in separate branches.
 
 ## Golang API Server with MySQL
 
-  ## Prerequisites to this project
+   ## Prerequisites to this project
 
 This project uses `dotenv` configuration for accessing environment variables,
 you must create  `variables.env` file and this file must have these properties
