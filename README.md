@@ -1,4 +1,4 @@
-# Remote Assignment V3
+# Remote Assignment V3 - Twitch Live Streams
 
 This project has both react-native and golang applications in separate branches. All you need to do is follow these instructions to run them without a hassle. Although, there is no routes setup on the frontend for OAuth with twitch, there is OAuth setup in the golang application, and you check that while hitting the route. I will also specify what routes I created and how do you have to run this project. But first .... 
 
