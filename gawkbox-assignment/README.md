@@ -9,7 +9,7 @@ This project has both react-native and golang applications in separate branches.
 This project uses `dotenv` configuration for accessing environment variables,
 you must create  `variables.env` file and this file must have these properties
 
-````
+```
  TWITCH_CLIENT_ID : XXXXXXXXXXXXXXXXXXXXXXXXXX
  TWITCH_CLIENT_SECRET : XXXXXXXXXXXXXXXXXXXXXX
  MYSQL_DATA_URL : XXXXXXXXXXXXXXXXXXXXXX
@@ -20,7 +20,7 @@ you must create  `variables.env` file and this file must have these properties
 
 after you set this up in the root directory, you can run
 
-````
+```
 
 go run main.go
 
