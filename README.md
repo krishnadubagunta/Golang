@@ -36,7 +36,7 @@ $GOPATH/src/github.com/krishnadubagunta/golang/gawkbox-assignment/
 
    ### How to install
   
-  in the terminal, get the repository this project is hosted on 
+  in the terminal, run this line to get the project in your `go/src/github` 
   ```
   go get github.com/krishnadubagunta/golang/gawkbox-assignment
   ```
