@@ -2,7 +2,7 @@ package auth
 
 import (
 	"github.com/dchest/uniuri"
-	"github.com/krishnadubagunta/GoLang/gawkbox-assignment/environment"
+	"github.com/krishnadubagunta/golang/gawkbox-assignment/environment"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/twitch"
 	"log"

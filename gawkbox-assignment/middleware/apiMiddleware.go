@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"github.com/krishnadubagunta/GoLang/gawkbox-assignment/environment"
+	"github.com/krishnadubagunta/golang/gawkbox-assignment/environment"
 	"net/http"
 )
 

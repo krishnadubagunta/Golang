@@ -10,7 +10,6 @@ type User struct {
 	ProfileImage string `json:"profile_image_url"`
 	OfflineImage string `json:"offline_image_url"`
 	ViewCount    int64  `json:"view_count"`
-	Email        string `json:"email,omitempty"`
 }
 
 //UserData to User Struct
@@ -49,5 +48,4 @@ type UserGorm struct {
 	ProfileImage string
 	OfflineImage string
 	ViewCount    int64
-	Email        string `gorm:"default:'NULL'"`
 }

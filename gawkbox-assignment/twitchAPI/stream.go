@@ -3,7 +3,7 @@ package twitchapi
 import (
 	"encoding/json"
 	"github.com/gorilla/mux"
-	"github.com/krishnadubagunta/GoLang/gawkbox-assignment/models"
+	"github.com/krishnadubagunta/golang/gawkbox-assignment/models"
 	"net/http"
 )
 

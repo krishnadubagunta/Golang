@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 	"github.com/gorilla/mux"
-	"github.com/krishnadubagunta/GoLang/gawkbox-assignment/auth"
-	"github.com/krishnadubagunta/GoLang/gawkbox-assignment/middleware"
-	"github.com/krishnadubagunta/GoLang/gawkbox-assignment/twitchapi"
+	"github.com/krishnadubagunta/golang/gawkbox-assignment/auth"
+	"github.com/krishnadubagunta/golang/gawkbox-assignment/middleware"
+	"github.com/krishnadubagunta/golang/gawkbox-assignment/twitchapi"
 	"log"
 	"net/http"
 )

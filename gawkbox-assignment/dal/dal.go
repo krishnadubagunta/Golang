@@ -3,8 +3,8 @@ package dal
 import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql" //For mysql driver
-	"github.com/krishnadubagunta/GoLang/gawkbox-assignment/environment"
-	"github.com/krishnadubagunta/GoLang/gawkbox-assignment/models"
+	"github.com/krishnadubagunta/golang/gawkbox-assignment/environment"
+	"github.com/krishnadubagunta/golang/gawkbox-assignment/models"
 	"log"
 )
 
@@ -45,7 +45,6 @@ func InsertOrUpdateUser(v interface{}) bool {
 		ProfileImage: V.ProfileImage,
 		OfflineImage: V.OfflineImage,
 		ViewCount:    V.ViewCount,
-		Email:        V.Email,
 	}
 	if db.Table("Users").Where("id = ?", V.ID).Find(&user).RecordNotFound() {
 		db.Table("Users").NewRecord(user)
