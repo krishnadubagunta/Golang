@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/gorilla/mux"
 	"github.com/krishnadubagunta/golang/gawkbox-assignment/auth"
+	"github.com/krishnadubagunta/golang/gawkbox-assignment/environment"
 	"github.com/krishnadubagunta/golang/gawkbox-assignment/middleware"
 	"github.com/krishnadubagunta/golang/gawkbox-assignment/twitchapi"
 	"log"
@@ -24,5 +25,10 @@ func main() {
 
 	fmt.Println("Server Booted...")
 	// Run your server
-	log.Fatal(http.ListenAndServe(":8080", middleware.APISetup(r)))
+
+	if environment.GetMode() == "AUTH" {
+		log.Fatal(http.ListenAndServe(":8080", middleware.APISetup(r)))
+	}
+
+	log.Fatal(http.ListenAndServe(environment.GetPrivateIP()+":8080", middleware.APISetup(r)))
 }

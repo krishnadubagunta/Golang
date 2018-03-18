@@ -14,7 +14,7 @@ var (
 	mysqlURL      string
 	redirectURI   string
 	privateIP     string
-	sessionKey    string
+	mode          string
 )
 
 func init() {
@@ -27,7 +27,7 @@ func init() {
 	mysqlURL = os.Getenv("MYSQL_DATA_URL")
 	redirectURI = os.Getenv("REDIRECT_URI")
 	privateIP = os.Getenv("PRIVATE_IP")
-	sessionKey = os.Getenv("SESSION_KEY")
+	mode = os.Getenv("MODE")
 }
 
 //GetTwitchClientID sets passes the Environment Variables to the req handlers
@@ -55,7 +55,7 @@ func GetPrivateIP() string {
 	return privateIP
 }
 
-//GetSessionKey returns the url for callback
-func GetSessionKey() string {
-	return sessionKey
+//GetMode return the mode of the application
+func GetMode() string {
+	return mode
 }
