@@ -96,4 +96,9 @@ Searching users from the database:
 
 Live search from SQL database cannot happen until you signin or signup using OAuth for this application. i.e., for this feature to return any users, you need to use `MODE=AUTH` atleast once in the Golang API.
 
+## API Routes: 
+`/api/auth`
+`/api/streams`
+`/api/user/{id}`
+
 # Thank you for Reading ME.
